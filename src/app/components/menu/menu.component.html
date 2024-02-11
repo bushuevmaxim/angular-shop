@@ -1,0 +1,16 @@
+<mat-drawer-container class="drawer-container" autosize hasBackdrop="true">
+    <mat-drawer #drawer class="sidenav" mode="side" [(opened)]="isSidebarShown">
+        <mat-nav-list class="navlist">
+
+            <button class="navlist-item" mat-stroked-button>Одежда</button>
+            <button class="navlist-item" mat-stroked-button>Обувь</button>
+            <button class="navlist-item" mat-stroked-button>Электроника</button>
+            <button class="navlist-item" mat-stroked-button>Аксессуары</button>
+        </mat-nav-list>
+    </mat-drawer>
+
+    <div class="sidenav-content">
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-drawer-container>

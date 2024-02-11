@@ -1,0 +1,10 @@
+.grid {
+    margin: auto 2%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex: 2;
+
+}

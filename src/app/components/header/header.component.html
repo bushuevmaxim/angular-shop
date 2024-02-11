@@ -1,0 +1,14 @@
+<mat-toolbar class="toolbar" color="primary">
+    <span>Nice Shopping</span>
+    <button mat-button (click)="showMenu()">Catalog</button>
+
+    <span class="spacer"></span>
+    <button mat-icon-button class="profile_cart_button" aria-label="Example icon-button with person icon">
+        <mat-icon>person</mat-icon>
+    </button>
+    <button mat-icon-button class="shopping_cart_button" aria-label="Example icon-button with shopping_cart icon">
+        <mat-icon>shopping_cart</mat-icon>
+    </button>
+
+</mat-toolbar>
+<app-menu [isSidebarShown]="isSidebarShown"></app-menu>

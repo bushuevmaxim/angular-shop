@@ -1,5 +1,5 @@
-<div class="products" *ngIf="products$ | async as products">
-    <ng-container *ngFor="let product of products">
+<div class="products">
+    <ng-container *ngFor="let product of products$ | async">
 
         <app-product [product]="product"> </app-product>
     </ng-container>

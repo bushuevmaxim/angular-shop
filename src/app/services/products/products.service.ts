@@ -25,22 +25,21 @@ export class ProductsService {
 
   }
 
-  fetchProducts(category: string | undefined) {
+  fetchProducts(category: string) {
     console.log('fetchProducts');
-
-    if (category != undefined) {
-      if (category == 'clothing') {
-        let menProducts = this.http.get<Product[]>(`${this.baseUrl}${Endpoints.Categories + CategoryType.men}`)
-        let womenProducts = this.http.get<Product[]>(`${this.baseUrl}${Endpoints.Categories + CategoryType.women}`)
-        return merge(menProducts, womenProducts);
-      }
-      else {
-        let products = this.http.get<Product[]>(`${this.baseUrl}${Endpoints.Categories + category}`)
-        return products;
-      }
-
-
+    if (category == 'clothing') {
+      let menProducts = this.http.get<Product[]>(`${this.baseUrl}${Endpoints.Categories + CategoryType.men}`)
+      let womenProducts = this.http.get<Product[]>(`${this.baseUrl}${Endpoints.Categories + CategoryType.women}`)
+      console.log('ne tuda');
+      return merge(menProducts, womenProducts);
     }
+    else if (category == CategoryType.electronics || category == CategoryType.jewelery) {
+      let products = this.http.get<Product[]>(`${this.baseUrl}${Endpoints.Categories + category}`)
+      console.log('ne suda');
+      return products;
+    }
+    console.log('all');
+
     let products = this.http.get<Product[]>(`${this.baseUrl}${Endpoints.Products}`)
     console.log(products);
 

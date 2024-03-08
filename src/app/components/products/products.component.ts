@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/services/products/models/product';
 import { ProductsService } from 'src/app/services/products/products.service';
@@ -7,28 +8,32 @@ import { ProductsService } from 'src/app/services/products/products.service';
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductsComponent implements OnInit, OnChanges {
+export class ProductsComponent implements OnInit {
+  static routeName: string = 'products/:category';
 
   productService: ProductsService;
   products$: Observable<Product[]> | undefined;
 
-  @Input() category: string | undefined;
+  category: string = 'all';
 
-  constructor(productService: ProductsService) {
+  constructor(productService: ProductsService, private route: ActivatedRoute, private cdr: ChangeDetectorRef) {
     this.productService = productService;
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes['category'].currentValue);
 
-  }
-  ngDoCheck(): void {
-    console.log('ngDoCheck');
 
-  }
   ngOnInit(): void {
 
     this.products$ = this.productService.fetchProducts(this.category);
+
+
+    this.route.params.subscribe(params => {
+      this.category = params['category'];
+      console.log(this.category);
+      this.products$ = this.productService.fetchProducts(this.category);
+      this.cdr.markForCheck();
+    });
   }
 
 

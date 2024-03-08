@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { Observable } from 'rxjs';
 import { ProductsService } from 'src/app/services/products/products.service';
 
@@ -12,6 +13,8 @@ export class MenuComponent implements OnInit {
   @Input() isSidebarShown: boolean = true;
   productsService: ProductsService;
   categories$: Observable<String[]> | undefined;
+
+  show: boolean = false;
   constructor(productsService: ProductsService) {
     this.productsService = productsService;
   }
@@ -19,6 +22,25 @@ export class MenuComponent implements OnInit {
     this.categories$ = this.productsService.fetchCategories();
   }
 
+  openSubMenu(menuTrigger: MatMenuTrigger) {
+    if (!menuTrigger.menuOpen) {
+      menuTrigger.openMenu();
+    }
 
+
+
+
+
+  }
+
+  closeSubMenu() {
+    // if (this.show) {
+    //   this.trigger.closeMenu();
+    //   console.log('close menu');
+    //   this.show = false;
+    // }
+
+
+  }
 
 }

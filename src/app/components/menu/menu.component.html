@@ -1,11 +1,18 @@
 <mat-drawer-container class="drawer-container" autosize hasBackdrop="true">
     <mat-drawer #drawer class="sidenav" mode="side" [(opened)]="isSidebarShown">
         <mat-nav-list class="navlist">
-
-            <button class="navlist-item" mat-stroked-button>Одежда</button>
-            <button class="navlist-item" mat-stroked-button>Обувь</button>
-            <button class="navlist-item" mat-stroked-button>Электроника</button>
-            <button class="navlist-item" mat-stroked-button>Аксессуары</button>
+            <a routerLink="">
+                <button class="navlist-item" mat-stroked-button>All categories </button>
+            </a>
+            <a routerLink="/category/electronics">
+                <button class="navlist-item" mat-stroked-button>Electronics </button>
+            </a>
+            <a routerLink="/category/jewelery">
+                <button class="navlist-item" mat-stroked-button>Jewelery </button>
+            </a>
+            <a routerLink="/category/clothing">
+                <button class="navlist-item" mat-stroked-button>Clothing </button>
+            </a>
         </mat-nav-list>
     </mat-drawer>
 

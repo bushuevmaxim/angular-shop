@@ -15,6 +15,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ProductComponent } from './components/product/product.component';
 import { MatCardModule } from '@angular/material/card';
+import { ProductsComponent } from './components/products/products.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductsCategoryComponent } from './components/products-category/products-category.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { MatCardModule } from '@angular/material/card';
     HeaderComponent,
     MenuComponent,
     HomeComponent,
-    ProductComponent
+    ProductComponent,
+    ProductsComponent,
+    ProductsCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { MatCardModule } from '@angular/material/card';
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

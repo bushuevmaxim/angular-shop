@@ -17,9 +17,9 @@
             </a>
             <a>
 
-                <button class="navlist-item" (click)="isSidebarShown= !isSidebarShown" #menuTrigger="matMenuTrigger"
-                    (mouseover)="openSubMenu(menuTrigger)" [matMenuTriggerFor]="closingtypes"
-                    mat-stroked-button>Clothing
+                <button [disabled]="show" class="navlist-item" (click)="isSidebarShown= !isSidebarShown"
+                    #menuTrigger="matMenuTrigger" (mouseover)="openSubMenu(menuTrigger)"
+                    [matMenuTriggerFor]="closingtypes" mat-stroked-button>Clothing
                 </button>
             </a>
         </mat-nav-list>

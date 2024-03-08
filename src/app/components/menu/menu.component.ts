@@ -23,24 +23,11 @@ export class MenuComponent implements OnInit {
   }
 
   openSubMenu(menuTrigger: MatMenuTrigger) {
-    if (!menuTrigger.menuOpen) {
-      menuTrigger.openMenu();
-    }
 
-
-
-
-
-  }
-
-  closeSubMenu() {
-    // if (this.show) {
-    //   this.trigger.closeMenu();
-    //   console.log('close menu');
-    //   this.show = false;
-    // }
+    menuTrigger.openMenu();
 
 
   }
 
 }
+

@@ -1,5 +1,8 @@
 <mat-toolbar class="toolbar" color="primary">
-    Nice Shopping
+
+    <button mat-button routerLink="products/all" (click)="isSidebarShown = false">
+        <h5> Nice Shopping</h5>
+    </button>
     <button mat-button (click)="showMenu()">
         <h5>Catalog</h5>
     </button>

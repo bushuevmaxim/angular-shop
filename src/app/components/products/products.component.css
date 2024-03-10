@@ -1,0 +1,9 @@
+.products {
+    width: 100%;
+
+    margin-left: 4%;
+    margin-right: 4%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}

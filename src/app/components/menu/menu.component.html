@@ -1,0 +1,39 @@
+<mat-drawer-container class="drawer-container" autosize hasBackdrop="true">
+
+
+    <mat-drawer #drawer class="sidenav" mode="side" [(opened)]="isSidebarShown">
+        <mat-nav-list class="navlist">
+            <a routerLink="">
+                <button class="navlist-item" (click)="isSidebarShown= !isSidebarShown" mat-stroked-button>All categories
+                </button>
+            </a>
+            <a routerLink="products/electronics">
+                <button class="navlist-item" (click)="isSidebarShown= !isSidebarShown" mat-stroked-button>Electronics
+                </button>
+            </a>
+            <a routerLink="products/jewelery">
+                <button class="navlist-item" (click)="isSidebarShown= !isSidebarShown" mat-stroked-button>Jewelery
+                </button>
+            </a>
+            <a>
+
+                <button [disabled]="show" class="navlist-item" (click)="isSidebarShown= !isSidebarShown"
+                    #menuTrigger="matMenuTrigger" (mouseover)="openSubMenu(menuTrigger)"
+                    [matMenuTriggerFor]="closingtypes" mat-stroked-button>Clothing
+                </button>
+            </a>
+        </mat-nav-list>
+        <mat-menu #closingtypes="matMenu">
+            <button mat-menu-item routerLink="products/men's clothing" (click)="isSidebarShown= !isSidebarShown">Men's
+                clothing</button>
+            <button mat-menu-item routerLink="products/women's clothing"
+                (click)="isSidebarShown= !isSidebarShown">Women's clothing</button>
+        </mat-menu>
+
+    </mat-drawer>
+
+    <div class="sidenav-content">
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-drawer-container>

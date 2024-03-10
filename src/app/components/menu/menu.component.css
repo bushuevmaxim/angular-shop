@@ -1,0 +1,16 @@
+.drawer-container {
+    height: 90vh;
+}
+
+.sidenav {
+    width: 200px;
+}
+
+.navlist {
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+    max-height: 80vh;
+    padding: 10% 5%;
+    justify-content: space-evenly
+}

@@ -1,0 +1,19 @@
+<mat-toolbar class="toolbar" color="primary">
+
+    <button mat-button routerLink="products/all" (click)="isSidebarShown = false">
+        <h5> Nice Shopping</h5>
+    </button>
+    <button mat-button (click)="showMenu()">
+        <h5>Catalog</h5>
+    </button>
+
+    <span class="spacer"></span>
+    <button mat-icon-button class="profile_cart_button" aria-label="Example icon-button with person icon">
+        <mat-icon>person</mat-icon>
+    </button>
+    <button mat-icon-button class="shopping_cart_button" aria-label="Example icon-button with shopping_cart icon">
+        <mat-icon>shopping_cart</mat-icon>
+    </button>
+
+</mat-toolbar>
+<app-menu [isSidebarShown]="isSidebarShown"></app-menu>

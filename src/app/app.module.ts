@@ -19,9 +19,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { FirestoreModule, provideFirestore } from '@angular/fire/firestore';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { provideAuth, getAuth } from '@angular/fire/auth';
-import { getFirestore } from 'firebase/firestore/lite';
-import { provideStorage, getStorage } from '@angular/fire/storage';
+import { provideAuth, getAuth, connectAuthEmulator } from '@angular/fire/auth';
+import { getFirestore } from 'firebase/firestore';
+import { provideStorage, getStorage, connectStorageEmulator } from '@angular/fire/storage';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { provideHotToastConfig } from '@ngneat/hot-toast';
+
 const firebaseConfig = {
   apiKey: "AIzaSyDAofOVXIiT1_vSgAZMEkrXeqzuSM1QvDQ",
   authDomain: "angular-shop-f137d.firebaseapp.com",
@@ -31,7 +39,9 @@ const firebaseConfig = {
   appId: "1:487128323606:web:0e338df7e9a6223eb0c737"
 };
 
-
+const appearance: MatFormFieldDefaultOptions = {
+  appearance: 'outline'
+};
 
 
 @NgModule({
@@ -41,6 +51,7 @@ const firebaseConfig = {
     MenuComponent,
     ProductComponent,
     ProductsComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -55,13 +66,32 @@ const firebaseConfig = {
     MatCardModule,
     HttpClientModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule,
     FirestoreModule,
+
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideAuth(() => {
+      const auth = getAuth();
+      return auth;
+    }),
+    provideFirestore(() => {
+      const firestore = getFirestore();
+      return firestore;
+    }),
+    provideStorage(() => {
+      const storage = getStorage();
+      return storage;
+    }),
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+
   ],
-  providers: [],
+  providers: [{
+    provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+    useValue: appearance
+  }, provideHotToastConfig()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

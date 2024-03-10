@@ -8,7 +8,8 @@
     </button>
 
     <span class="spacer"></span>
-    <button mat-icon-button class="profile_cart_button" aria-label="Example icon-button with person icon">
+    <button mat-icon-button class="profile_cart_button" (click)="openDialog()"
+        aria-label="Example icon-button with person icon">
         <mat-icon>person</mat-icon>
     </button>
     <button mat-icon-button class="shopping_cart_button" aria-label="Example icon-button with shopping_cart icon">

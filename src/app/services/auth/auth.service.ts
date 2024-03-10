@@ -18,6 +18,8 @@ export class AuthService {
   constructor(private auth: Auth) { }
 
   signUp(email: string, password: string): Observable<UserCredential> {
+    console.log('signUp');
+
     return from(createUserWithEmailAndPassword(this.auth, email, password));
   }
 

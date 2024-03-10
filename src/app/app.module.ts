@@ -29,6 +29,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { provideHotToastConfig } from '@ngneat/hot-toast';
+import { LoginComponent } from './components/login/login.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDAofOVXIiT1_vSgAZMEkrXeqzuSM1QvDQ",
@@ -51,7 +52,8 @@ const appearance: MatFormFieldDefaultOptions = {
     MenuComponent,
     ProductComponent,
     ProductsComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

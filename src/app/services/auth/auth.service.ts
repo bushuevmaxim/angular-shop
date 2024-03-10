@@ -4,7 +4,6 @@ import {
   signInWithEmailAndPassword,
   authState,
   createUserWithEmailAndPassword,
-  UserInfo,
   UserCredential,
 } from '@angular/fire/auth';
 import { from, Observable } from 'rxjs';

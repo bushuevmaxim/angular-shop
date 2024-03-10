@@ -8,10 +8,21 @@
     </button>
 
     <span class="spacer"></span>
-    <button mat-icon-button class="profile_cart_button" (click)="openDialog()"
-        aria-label="Example icon-button with person icon">
-        <mat-icon>person</mat-icon>
-    </button>
+    <ng-container *ngIf="user$ | async as user; else unknownuser">
+        <h1>{{user.firstName}} {{user.lastName}}</h1>
+        <button mat-icon-button class="logout_button" (click)="logout()"
+            aria-label="Example icon-button with logout icon">
+            <mat-icon>logout</mat-icon>
+        </button>
+    </ng-container>
+    <ng-template #unknownuser>
+        <button mat-icon-button class="login_button" (click)="openDialog()"
+            aria-label="Example icon-button with login icon">
+            <mat-icon>login</mat-icon>
+        </button>
+    </ng-template>
+
+
     <button mat-icon-button class="shopping_cart_button" aria-label="Example icon-button with shopping_cart icon">
         <mat-icon>shopping_cart</mat-icon>
     </button>

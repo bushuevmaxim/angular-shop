@@ -1,0 +1,56 @@
+<div class="form-container">
+    <h1 class="header">SIGN UP</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <mat-form-field>
+            <input matInput placeholder="FirstName" formControlName="firstName" />
+            <mat-error *ngIf="firstName?.errors?.['required']">
+                FirstName is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="LastName" formControlName="lastName" />
+            <mat-error *ngIf="lastName?.errors?.['required']">
+                LastName is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="email" name="email" email matInput placeholder="Email" formControlName="email" />
+            <mat-error *ngIf="email?.errors?.['required']">
+                Email address is required
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email']">
+                Please enter a valid email address
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="City" formControlName="city" />
+            <mat-error *ngIf="city?.errors?.['required']">
+                City is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Password" formControlName="password" />
+            <mat-error *ngIf="password?.errors?.['required']">
+                Password is required
+            </mat-error>
+
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
+            <mat-error *ngIf="confirmPassword?.errors?.['required']">
+                Confirm Password is required
+            </mat-error>
+        </mat-form-field>
+        <mat-error *ngIf="form.errors?.['passwordsDontMatch']">
+            Passwords should match
+        </mat-error>
+        <mat-error *ngIf="form.errors?.['passwordTooShort'] ">
+            Password length is at least 6
+        </mat-error>
+
+        <button [disabled]="!form.valid" type="submit" class="submit_button" mat-fab extended color="primary">Sign
+            up</button>
+
+    </form>
+</div>

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './components/products/products.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: 'products/all', pathMatch: 'full' },
   { path: ProductsComponent.routeName, component: ProductsComponent }
 ];

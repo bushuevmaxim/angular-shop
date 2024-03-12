@@ -1,0 +1,22 @@
+.form-container {
+    display: block;
+    max-width: 500px;
+    margin: auto;
+    padding: 48px;
+    border-radius: 16px;
+
+    mat-form-field {
+        width: 100%;
+
+    }
+}
+
+.form_button {
+
+    min-width: 100%;
+    min-height: 50px
+}
+
+.header {
+    text-align: center;
+}
